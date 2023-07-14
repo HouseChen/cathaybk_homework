@@ -13,27 +13,27 @@ def fix_incorrect_score(score_list):
     for score in score_list:
         if type(score) == int:
             score_str = str(score)
-            if "0" not in score_str: 
+            if "0" not in score_str:
                 fixed_num = int(score_str[::-1])
                 # fixed_num=''.join(reversed(score_str))
             else:
                 fixed_num = score
             result.append(fixed_num)
-        else: 
+        else:
             return "Error!! Input list should be int."
-    return result 
+    return result
 
 
 if __name__ == "__main__":
-    A =  [35, 46, 57, 91, 29]
+    A = [35, 46, 57, 91, 29]
     expect_result = [53, 64, 75, 19, 92]
 
-    # 假設 0, 100, 80 有0的不會key錯
-    # A =  [35, 46, 57, 91, 29, 77, 0, 100, 80]
-    # expect_result = [53, 64, 75, 19, 92, 77, 0, 100, 80]
+    # 假設 0, 100, 80 有0的與個位數的成績不會key錯
+    # A = [35, 46, 57, 91, 29, 77, 0, 100, 80, 6]
+    # expect_result = [53, 64, 75, 19, 92, 77, 0, 100, 80, 6]
 
     # 假設 key的不是數字
-    # A = [90,"A"]
+    # A = [90, "A"]
 
     test_result = fix_incorrect_score(A)
     print(test_result)
@@ -41,4 +41,3 @@ if __name__ == "__main__":
         print("This function is correct.")
     else:
         print("Something wrong in this function.")
-    
